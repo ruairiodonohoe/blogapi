@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # 3rd Party
     "rest_framework",
-    "corsheaders"
+    "corsheaders",
     # LOCAL
     "accounts.apps.AccountsConfig",
     "posts.apps.PostsConfig",
@@ -132,7 +132,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "accounts.CustomUser"
 
 
-REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"]
+}
 
 
 CORS_ORIGIN_WHITELIST = ("http://localhost:3000", "http://localhost:8000")
